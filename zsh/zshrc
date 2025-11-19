@@ -1,0 +1,85 @@
+PLUGIN_DIR=$HOME/.local/bin/
+mkdir -p "$PLUGIN_DIR"
+
+ZSH_PLUGINS=(
+  "zsh-autosuggestions:https://github.com/zsh-users/zsh-autosuggestions"
+  "zsh-syntax-highlighting:https://github.com/zsh-users/zsh-syntax-highlighting.git"
+)
+
+install_zplugins() {
+  mkdir -p "$PLUGIN_DIR"
+
+  for entry in "${ZSH_PLUGINS[@]}"; do
+    name="${entry%%:*}"
+    repo="${entry#*:}"
+    dest="$PLUGIN_DIR/$name"
+
+    # Only clone if plugin dir doesn’t contain any *.zsh or *.plugin.zsh files
+    if ! ls "$dest"/*.zsh >/dev/null 2>&1; then
+      echo "Installing $name..."
+      git clone "$repo" "$dest"
+    fi
+  done
+}
+
+guix_info_msg() {
+  [ -n "$GUIX_ENVIRONMENT" ] && echo " | guix"
+}
+
+source_plugins() {
+  source "$ZSH_AUTO_SUGGESTIONS/zsh-autosuggestions.zsh"
+  source "$ZSH_SYNTAX_HIGHLIGHTING/zsh-syntax-highlighting.zsh"
+}
+
+install_ps1() {
+  autoload -U vcs_info
+  precmd_vcs_info() { vcs_info }
+  precmd_functions+=( precmd_vcs_info )
+  setopt prompt_subst
+  zstyle ':vcs_info:git:*' formats '%b'
+
+  export PROMPT="%{%F{39}%}%n%{%F{45}%}@%{%F{51}%}%m %{%F{195}%}%~ %{%f%}$ "
+  export RPROMPT='${vcs_info_msg_0_}$(guix_info_msg)'
+}
+
+configure_zsh_navigation() {
+  setopt AUTO_CD
+  setopt AUTO_PUSHD
+  setopt PUSHD_IGNORE_DUPS
+  setopt PUSHD_SILENT
+  setopt CORRECT # Spelling correction
+  setopt CDABLE_VARS # Can change directory to paths stored in variable
+}
+
+configure_zsh_history() {
+  setopt EXTENDED_GLOB
+  setopt EXTENDED_HISTORY               # Write the history file in the ':start:elapsed;command' format.
+  setopt SHARE_HISTORY                  # Share history between all sessions.
+  setopt HIST_EXPIRE_DUPS_FIRST         # Expire a duplicate event first when trimming history.
+  setopt HIST_IGNORE_DUPS               # Do not record an event that was just recorded again.
+  setopt HIST_IGNORE_ALL_DUPS           # Delete an old recorded event if a new event is a duplicate.
+  setopt HIST_FIND_NO_DUPS              # Do not display a previously found event.
+  setopt HIST_IGNORE_SPACE              # Do not record an event starting with a space.
+  setopt HIST_SAVE_NO_DUPS              # Do not write a duplicate event to the history file.
+  setopt HIST_VERIFY                    # Do not execute immediately upon history expansion.
+  export HISTFILE="$HOME/.zhistory"     # History filepath
+  export HISTSIZE=10000                 # Maximum events for internal history
+  export SAVEHIST=10000                 # Maximum events in history file
+  setopt appendhistory
+}
+
+configure_zsh() {
+  autoload -U compinit; compinit
+  configure_zsh_navigation
+  configure_zsh_history
+}
+
+emacs_mode() {
+  set -o emacs
+}
+
+install_zplugins
+source_plugins
+install_ps1
+configure_zsh
+emacs_mode
