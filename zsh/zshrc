@@ -1,9 +1,9 @@
-PLUGIN_DIR=$HOME/.local/bin/
+PLUGIN_DIR=$HOME/.local/bin
 mkdir -p "$PLUGIN_DIR"
 
 ZSH_PLUGINS=(
-  "zsh-autosuggestions:https://github.com/zsh-users/zsh-autosuggestions"
-  "zsh-syntax-highlighting:https://github.com/zsh-users/zsh-syntax-highlighting.git"
+  "zsh-autosuggestions:https://github.com/zsh-users/zsh-autosuggestions:zsh-autosuggestions.zsh"
+  "zsh-syntax-highlighting:https://github.com/zsh-users/zsh-syntax-highlighting.git:zsh-syntax-highlighting.zsh"
 )
 
 install_zplugins() {
@@ -11,7 +11,8 @@ install_zplugins() {
 
   for entry in "${ZSH_PLUGINS[@]}"; do
     name="${entry%%:*}"
-    repo="${entry#*:}"
+    repo_and_script="${entry#*:}"
+    repo="${repo_and_script%:*}"
     dest="$PLUGIN_DIR/$name"
 
     # Only clone if plugin dir doesn’t contain any *.zsh or *.plugin.zsh files
@@ -27,8 +28,14 @@ guix_info_msg() {
 }
 
 source_plugins() {
-  source "$ZSH_AUTO_SUGGESTIONS/zsh-autosuggestions.zsh"
-  source "$ZSH_SYNTAX_HIGHLIGHTING/zsh-syntax-highlighting.zsh"
+  for entry in "${ZSH_PLUGINS[@]}"; do
+    name="${entry%%:*}"
+    repo_and_script="${entry#*:}"
+    script="${repo_and_script##*:}"
+    dest="$PLUGIN_DIR/$name/$script"
+
+    [ -f "$dest" ] && source "$dest"
+  done
 }
 
 install_ps1() {
