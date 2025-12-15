@@ -6,6 +6,11 @@ ZSH_PLUGINS=(
   "zsh-syntax-highlighting:https://github.com/zsh-users/zsh-syntax-highlighting.git:zsh-syntax-highlighting.zsh"
 )
 
+export PATH="$HOME/.alatar/bin:$PATH"
+export PATH="$HOME/.alatar/scripts:$PATH"
+export PATH="$HOME/.local/share/grabnim/current/bin:$PATH"
+export PATH="$HOME/.nimble/bin:$PATH"
+
 install_zplugins() {
   mkdir -p "$PLUGIN_DIR"
 
@@ -90,3 +95,10 @@ source_plugins
 install_ps1
 configure_zsh
 emacs_mode
+
+# bun completions
+[ -s "/home/dneumann/.bun/_bun" ] && source "/home/dneumann/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

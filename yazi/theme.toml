@@ -1,0 +1,13 @@
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+# Keep default theme, but make the base background transparent (uses terminal bg).
+[app]
+overall = { bg = "reset" }
+
+# Make status/tabs bars transparent too.
+[status]
+overall = { bg = "reset" }
+
+[tabs]
+active = { bg = "reset", bold = true }
+inactive = { bg = "reset" }

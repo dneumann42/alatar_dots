@@ -1,0 +1,102 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 16,
+  "spacing": 6,
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode"
+  ],
+  "modules-center": [
+    "sway/window"
+  ],
+  "modules-right": [
+    "idle_inhibitor",
+    "backlight",
+    "pulseaudio",
+    "network",
+    "battery",
+    "custom/time",
+    "tray"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}",
+    "on-click": "swaymsg workspace {name}",
+    "on-scroll-up": "swaymsg workspace prev",
+    "on-scroll-down": "swaymsg workspace next"
+  },
+  "sway/window": {
+    "format": "{}",
+    "max-length": 60,
+    "tooltip": false
+  },
+  "custom/time": {
+    "exec": "$HOME/.alatar/scripts/waybar-datetime.sh",
+    "return-type": "json",
+    "interval": 30,
+    "format": "{text}",
+    "on-click": "korganizer"
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{volume:>2}% {icon}",
+    "format-muted": "mute ",
+    "format-bluetooth": "{volume:>2}%  {icon}",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ],
+      "phone": [
+        ""
+      ]
+    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+  "network": {
+    "interval": 3,
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ifname}: {ipaddr} ",
+    "format-disconnected": "offline",
+    "tooltip-format": "{ifname} via {gwaddr}\n{ipaddr}/{cidr}",
+    "on-click": "nm-connection-editor"
+  },
+  "battery": {
+    "states": {
+      "good": 80,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-plugged": "{capacity}% ",
+    "format-charging": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "backlight": {
+    "format": "{percent}% ",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  }
+}

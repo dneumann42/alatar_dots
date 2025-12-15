@@ -1,0 +1,163 @@
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+@define-color text #ffffff;
+@define-color subtext0 #a6adc8;
+@define-color overlay0 #6c7086;
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color surface2 #585b70;
+@define-color lavender #b4befe;
+@define-color sapphire #74c7ec;
+@define-color teal #94e2d5;
+@define-color peach #fab387;
+@define-color red #f38ba8;
+@define-color green #a6e3a1;
+@define-color pastel-rose #c77093;
+@define-color pastel-peach #c18763;
+@define-color pastel-mint #6fa689;
+@define-color pastel-sky #6782b3;
+@define-color pastel-lilac #8777c3;
+@define-color pastel-sea #699aa1;
+@define-color mauve #9c7ad9;
+@define-color sky-bright #5da6c4;
+@define-color cream #d7b57a;
+@define-color emerald #4c9a69;
+@define-color night1 #0c0e15;
+@define-color night2 #0f1523;
+@define-color night3 #0b0f1a;
+
+* {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: bold;
+  min-height: 0;
+}
+
+window#waybar {
+  background: linear-gradient(90deg, @night3 0%, @night2 45%, @night1 100%);
+  color: @text;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#workspaces {
+  padding: 0 8px;
+}
+
+#workspaces button {
+  background: transparent;
+  color: @subtext0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0px 0px;
+  margin: 4px 4px;
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+}
+
+#workspaces button.focused {
+  background: linear-gradient(135deg, #2e2b4d, #1f2f46);
+  color: @text;
+  border-color: rgba(146, 153, 220, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
+}
+
+#workspaces button.urgent {
+  background: @red;
+  color: @crust;
+  border-color: @red;
+}
+
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#tray,
+#backlight,
+#idle_inhibitor,
+#mode,
+#window,
+#custom-time {
+  background: #1d1f2f;
+  color: @text;
+  border: 1px solid rgba(17, 17, 27, 0.35);
+  border-radius: 12px;
+  padding: 0px 8px;
+  margin: 1px 2px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#mode {
+  background: linear-gradient(135deg, #2f2348, #352430);
+  border-color: #7f5fae;
+}
+
+#window {
+  background: linear-gradient(135deg, #1f2e44, #202b3f);
+  border-color: #496a90;
+  color: @text;
+}
+
+#tray {
+  background: linear-gradient(135deg, #1c3644, #142833);
+  border-color: #32596b;
+  padding: 0px 6px;
+}
+
+#idle_inhibitor {
+  background: linear-gradient(135deg, #1e2f2d, #16372f);
+  border-color: #2f6151;
+}
+
+#backlight {
+  background: linear-gradient(135deg, #3a2c1f, #2a1d14);
+  border-color: #5f3f2d;
+}
+
+#pulseaudio {
+  background: linear-gradient(135deg, #2c2541, #252038);
+  border-color: #635591;
+}
+
+#network {
+  background: linear-gradient(135deg, #163745, #0f2b34);
+  border-color: #2c6a7b;
+}
+
+#battery.warning {
+  border-color: @peach;
+  color: @text;
+}
+
+#battery.critical {
+  border-color: @red;
+  color: @text;
+}
+
+#battery {
+  background: linear-gradient(135deg, #1f3424, #15281a);
+  border-color: #3f6c4a;
+}
+
+#network.disconnected {
+  color: @red;
+  border-color: @red;
+}
+
+#pulseaudio.muted {
+  color: @overlay0;
+  border-color: #635591;
+}
+
+#custom-time {
+  background: linear-gradient(135deg, #38252e, #2b1f3a);
+  border-color: #6b4554;
+}
+
+#idle_inhibitor.activated {
+  color: @text;
+  border-color: #56816a;
+}
+
+#battery.good {
+  border-color: #86b79d;
+}
