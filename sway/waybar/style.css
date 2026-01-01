@@ -54,6 +54,12 @@ window#waybar {
   transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
 }
 
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: @text;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
 #workspaces button.focused {
   background: linear-gradient(135deg, #2e2b4d, #1f2f46);
   color: @text;
@@ -84,6 +90,7 @@ window#waybar {
   padding: 0px 8px;
   margin: 1px 2px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 #mode {
@@ -151,6 +158,66 @@ window#waybar {
 #custom-time {
   background: linear-gradient(135deg, #38252e, #2b1f3a);
   border-color: #6b4554;
+}
+
+#clock:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#tray:hover,
+#backlight:hover,
+#idle_inhibitor:hover,
+#mode:hover,
+#window:hover,
+#custom-time:hover {
+  background: linear-gradient(135deg, #2b3350, #26374d);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+#group-media {
+  padding: 0;
+  margin: 1px 2px;
+}
+
+#group-media > * {
+  margin: 0;
+}
+
+#custom-media_prev,
+#custom-media_toggle,
+#custom-media_next,
+#custom-media_info {
+  background: linear-gradient(135deg, #233447, #1c2a3a);
+  color: @text;
+  border: 1px solid rgba(99, 110, 140, 0.6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  padding: 0 10px;
+  margin: 0;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+#custom-media_prev {
+  border-radius: 12px 0 0 12px;
+}
+
+#custom-media_toggle,
+#custom-media_next {
+  border-radius: 0;
+  border-left: none;
+}
+
+#custom-media_info {
+  border-radius: 0 12px 12px 0;
+  border-left: none;
+}
+
+#custom-media_prev:hover,
+#custom-media_toggle:hover,
+#custom-media_next:hover,
+#custom-media_info:hover {
+  background: linear-gradient(135deg, #2d4462, #24374e);
+  border-color: rgba(140, 160, 200, 0.9);
+  color: @text;
 }
 
 #idle_inhibitor.activated {

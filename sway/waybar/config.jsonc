@@ -13,6 +13,7 @@
   "modules-right": [
     "idle_inhibitor",
     "backlight",
+    "group/media",
     "pulseaudio",
     "network",
     "battery",
@@ -31,6 +32,37 @@
     "format": "{}",
     "max-length": 60,
     "tooltip": false
+  },
+  "custom/media_prev": {
+    "format": "",
+    "tooltip": "Previous",
+    "on-click": "$HOME/.alatar/scripts/media.sh prev"
+  },
+  "group/media": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/media_prev",
+      "custom/media_toggle",
+      "custom/media_next",
+      "custom/media_info"
+    ]
+  },
+  "custom/media_toggle": {
+    "exec": "$HOME/.alatar/scripts/media.sh icon",
+    "return-type": "json",
+    "interval": 2,
+    "tooltip": "Play/Pause",
+    "on-click": "$HOME/.alatar/scripts/media.sh toggle"
+  },
+  "custom/media_next": {
+    "format": "",
+    "tooltip": "Next",
+    "on-click": "$HOME/.alatar/scripts/media.sh next"
+  },
+  "custom/media_info": {
+    "exec": "$HOME/.alatar/scripts/media.sh track",
+    "return-type": "json",
+    "interval": 2
   },
   "custom/time": {
     "exec": "$HOME/.alatar/scripts/waybar-datetime.sh",

@@ -4,3 +4,5 @@ export BROWSER="firefox"
 export GIT_REVIEW_BASE=main # See gitconfig
 export TERM="xterm-ghostty"
 export REPOS="$HOME/.repos"
+
+if [ -e /home/dneumann/.nix-profile/etc/profile.d/nix.sh ]; then . /home/dneumann/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

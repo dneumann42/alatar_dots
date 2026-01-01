@@ -28,6 +28,7 @@ client.background        $base
 exec swaync
 exec_always --no-startup-id ~/.alatar/scripts/pin-alatar-shell.sh
 exec_always --no-startup-id sh -c 'pkill -x waybar || true; waybar --config "$HOME/.alatar/alatar_dots/sway/waybar/config.jsonc" --style "$HOME/.alatar/alatar_dots/sway/waybar/style.css"'
+exec_always --no-startup-id ~/.alatar/scripts/manage-firefox-pip.sh
 
 include ./keybindings.conf
 
@@ -44,7 +45,7 @@ floating_modifier $mod normal
 for_window [app_id="swayimg"] border none
 for_window [title="wikid"] floating enable
 for_window [app_id="mpv"] floating enable, sticky enable
-for_window [title=".*-DEV-.*"] floating enable
+for_window [title=".* DEV .*"] floating enable
 for_window [app_id="floating-terminal" title="Floating Terminal"] floating enable
 for_window [app_id="app.floating-yazi"] floating enable
 for_window [app_id="korganizer"] floating enable
@@ -56,6 +57,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [app_id="cheatsheet-term" title="Keybindings Cheatsheet"] mark cheatsheet-term, floating enable, resize set 1400 900, move position center
 for_window [title="Keybindings Cheatsheet"] floating enable
 for_window [app_id="com.mitchellh.ghostty" title="floating-term"] mark floating-term, floating enable, resize set 1400 900, move position center
+for_window [app_id="swayimg"] floating enable, border none, resize set 1600 900, move position center
 for_window [title="Alatar Shell"] {
 	   floating enable
 	   resize set 300 32

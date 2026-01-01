@@ -1,0 +1,25 @@
+# Store cache under XDG data directory
+cache-file "~/.local/share/newsboat/cache.db"
+
+# Vim-like navigation
+bind-key j down
+bind-key k up
+bind-key g home
+bind-key G end
+bind-key h quit
+bind-key l open
+bind-key u pageup
+bind-key d pagedown
+bind-key H prev-feed
+bind-key L next-feed
+bind-key J next
+bind-key K prev
+
+# Calm dark theme with teal accents
+color listnormal          color250   default
+color listfocus           black      color37    bold
+color listnormal_unread   white      default    bold
+color listfocus_unread    black      color43    bold
+color title               white      color24    bold
+color info                color115   default    bold
+color article             color152   default

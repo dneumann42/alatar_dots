@@ -1,0 +1,131 @@
+configuration {
+  modi: "drun,run,window";
+  show-icons: true;
+  icon-theme: "Papirus";
+  display-drun: "apps";
+  display-run: "run";
+  display-window: "windows";
+  drun-display-format: "{name}";
+  window-format: "{w} · {c} · {t}";
+  matching: "fuzzy";
+  kb-accept-entry: "Return,KP_Enter";
+  font: "JetBrainsMono Nerd Font 12";
+}
+
+* {
+  base: #1e1e2e;
+  mantle: #181825;
+  crust: #11111b;
+  text: #ffffff;
+  subtext0: #a6adc8;
+  overlay0: #6c7086;
+  surface0: #313244;
+  surface1: #45475a;
+  surface2: #585b70;
+  lavender: #b4befe;
+  sapphire: #74c7ec;
+  peach: #fab387;
+  teal: #94e2d5;
+  red: #f38ba8;
+  green: #a6e3a1;
+  night1: #0c0e15;
+  night2: #0f1523;
+  night3: #0b0f1a;
+
+  accent: @sapphire;
+  accent-strong: @lavender;
+  win-bg: #0b1020;
+  card-bg: #111726;
+  card-bg-strong: #161d2d;
+  item-bg: #141c2c;
+  item-alt: #182234;
+  item-selected: #203551;
+
+  background-color: @win-bg;
+  text-color: @text;
+}
+
+window {
+  width: 760px;
+  padding: 18px;
+  border: 2px;
+  border-color: @accent;
+  border-radius: 16px;
+  background-color: @win-bg;
+}
+
+mainbox {
+  spacing: 12px;
+  background-color: @win-bg;
+}
+
+inputbar {
+  background-color: @card-bg-strong;
+  border: 1px;
+  border-color: @accent-strong;
+  border-radius: 12px;
+  padding: 12px;
+  spacing: 12px;
+  children: [prompt, entry];
+}
+
+prompt {
+  text-color: @accent-strong;
+  background-color: transparent;
+}
+
+entry {
+  text-color: @text;
+  background-color: transparent;
+  placeholder: "Search…";
+  placeholder-color: @overlay0;
+}
+
+listview {
+  lines: 12;
+  columns: 1;
+  spacing: 10px;
+  scrollbar: false;
+  fixed-height: false;
+  dynamic: true;
+  background-color: @card-bg;
+}
+
+element {
+  background-color: @item-bg;
+  border: 1px;
+  border-color: @surface0;
+  border-radius: 12px;
+  padding: 10px;
+  text-color: @overlay0;
+}
+
+element alternate {
+  background-color: @item-alt;
+}
+
+element selected {
+  background-color: @item-selected;
+  border-color: @accent-strong;
+  text-color: @text;
+}
+
+element urgent {
+  border-color: @peach;
+  text-color: @peach;
+}
+
+element active {
+  border-color: @teal;
+  text-color: @green;
+}
+
+element-text, element-icon, textbox {
+  vertical-align: 0.5;
+  background-color: transparent;
+}
+
+textbox {
+  text-color: @text;
+  background-color: transparent;
+}
