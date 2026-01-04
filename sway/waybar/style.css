@@ -1,31 +1,4 @@
-@define-color base #1e1e2e;
-@define-color mantle #181825;
-@define-color crust #11111b;
-@define-color text #ffffff;
-@define-color subtext0 #a6adc8;
-@define-color overlay0 #6c7086;
-@define-color surface0 #313244;
-@define-color surface1 #45475a;
-@define-color surface2 #585b70;
-@define-color lavender #b4befe;
-@define-color sapphire #74c7ec;
-@define-color teal #94e2d5;
-@define-color peach #fab387;
-@define-color red #f38ba8;
-@define-color green #a6e3a1;
-@define-color pastel-rose #c77093;
-@define-color pastel-peach #c18763;
-@define-color pastel-mint #6fa689;
-@define-color pastel-sky #6782b3;
-@define-color pastel-lilac #8777c3;
-@define-color pastel-sea #699aa1;
-@define-color mauve #9c7ad9;
-@define-color sky-bright #5da6c4;
-@define-color cream #d7b57a;
-@define-color emerald #4c9a69;
-@define-color night1 #0c0e15;
-@define-color night2 #0f1523;
-@define-color night3 #0b0f1a;
+@import "colors.css";
 
 * {
   font-family: monospace;
@@ -61,9 +34,9 @@ window#waybar {
 }
 
 #workspaces button.focused {
-  background: linear-gradient(135deg, #2e2b4d, #1f2f46);
+  background: linear-gradient(135deg, @surface2, @surface1);
   color: @text;
-  border-color: rgba(146, 153, 220, 0.7);
+  border-color: alpha(@lavender, 0.7);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
 }
 
@@ -83,9 +56,9 @@ window#waybar {
 #mode,
 #window,
 #custom-time {
-  background: #1d1f2f;
+  background: @surface0;
   color: @text;
-  border: 1px solid rgba(17, 17, 27, 0.35);
+  border: 1px solid alpha(@crust, 0.35);
   border-radius: 12px;
   padding: 0px 8px;
   margin: 1px 2px;
@@ -94,40 +67,40 @@ window#waybar {
 }
 
 #mode {
-  background: linear-gradient(135deg, #2f2348, #352430);
-  border-color: #7f5fae;
+  background: linear-gradient(135deg, @mauve, @surface1);
+  border-color: @mauve;
 }
 
 #window {
-  background: linear-gradient(135deg, #1f2e44, #202b3f);
-  border-color: #496a90;
+  background: linear-gradient(135deg, @sapphire, @surface1);
+  border-color: @sapphire;
   color: @text;
 }
 
 #tray {
-  background: linear-gradient(135deg, #1c3644, #142833);
-  border-color: #32596b;
+  background: linear-gradient(135deg, @teal, @surface1);
+  border-color: @teal;
   padding: 0px 6px;
 }
 
 #idle_inhibitor {
-  background: linear-gradient(135deg, #1e2f2d, #16372f);
-  border-color: #2f6151;
+  background: linear-gradient(135deg, @green, @surface1);
+  border-color: @green;
 }
 
 #backlight {
-  background: linear-gradient(135deg, #3a2c1f, #2a1d14);
-  border-color: #5f3f2d;
+  background: linear-gradient(135deg, @peach, @surface1);
+  border-color: @peach;
 }
 
 #pulseaudio {
-  background: linear-gradient(135deg, #2c2541, #252038);
-  border-color: #635591;
+  background: linear-gradient(135deg, @lavender, @surface1);
+  border-color: @lavender;
 }
 
 #network {
-  background: linear-gradient(135deg, #163745, #0f2b34);
-  border-color: #2c6a7b;
+  background: linear-gradient(135deg, @sapphire, @surface1);
+  border-color: @sapphire;
 }
 
 #battery.warning {
@@ -141,8 +114,8 @@ window#waybar {
 }
 
 #battery {
-  background: linear-gradient(135deg, #1f3424, #15281a);
-  border-color: #3f6c4a;
+  background: linear-gradient(135deg, @green, @surface1);
+  border-color: @green;
 }
 
 #network.disconnected {
@@ -152,12 +125,12 @@ window#waybar {
 
 #pulseaudio.muted {
   color: @overlay0;
-  border-color: #635591;
+  border-color: @lavender;
 }
 
 #custom-time {
-  background: linear-gradient(135deg, #38252e, #2b1f3a);
-  border-color: #6b4554;
+  background: linear-gradient(135deg, @pastel-rose, @surface1);
+  border-color: @pastel-rose;
 }
 
 #clock:hover,
@@ -170,8 +143,8 @@ window#waybar {
 #mode:hover,
 #window:hover,
 #custom-time:hover {
-  background: linear-gradient(135deg, #2b3350, #26374d);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: linear-gradient(135deg, @surface1, @surface2);
+  border-color: alpha(@text, 0.22);
 }
 
 #group-media {
@@ -187,9 +160,9 @@ window#waybar {
 #custom-media_toggle,
 #custom-media_next,
 #custom-media_info {
-  background: linear-gradient(135deg, #233447, #1c2a3a);
+  background: linear-gradient(135deg, @surface1, @surface0);
   color: @text;
-  border: 1px solid rgba(99, 110, 140, 0.6);
+  border: 1px solid alpha(@overlay0, 0.6);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
   padding: 0 10px;
   margin: 0;
@@ -215,16 +188,16 @@ window#waybar {
 #custom-media_toggle:hover,
 #custom-media_next:hover,
 #custom-media_info:hover {
-  background: linear-gradient(135deg, #2d4462, #24374e);
-  border-color: rgba(140, 160, 200, 0.9);
+  background: linear-gradient(135deg, @surface2, @surface1);
+  border-color: alpha(@sapphire, 0.9);
   color: @text;
 }
 
 #idle_inhibitor.activated {
   color: @text;
-  border-color: #56816a;
+  border-color: @green;
 }
 
 #battery.good {
-  border-color: #86b79d;
+  border-color: alpha(@green, 0.8);
 }

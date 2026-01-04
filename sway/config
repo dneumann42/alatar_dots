@@ -34,7 +34,8 @@ include ./keybindings.conf
 
 focus_on_window_activation  smart
 default_orientation         auto
-default_border              pixel 4
+default_border              normal 4
+default_floating_border     normal 4
 
 output * bg $HOME/.config/wallpaper.png fill
 
@@ -54,6 +55,8 @@ for_window [app_id="nm-connection-editor"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [app_id="^(code|code-oss|VSCodium)$"] opacity 0.95
+for_window [class="^(Code|code-oss|VSCodium)$"] opacity 0.95
 for_window [app_id="cheatsheet-term" title="Keybindings Cheatsheet"] mark cheatsheet-term, floating enable, resize set 1400 900, move position center
 for_window [title="Keybindings Cheatsheet"] floating enable
 for_window [app_id="com.mitchellh.ghostty" title="floating-term"] mark floating-term, floating enable, resize set 1400 900, move position center

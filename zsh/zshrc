@@ -10,6 +10,7 @@ export PATH="$HOME/.alatar/bin:$PATH"
 export PATH="$HOME/.alatar/scripts:$PATH"
 export PATH="$HOME/.local/share/grabnim/current/bin:$PATH"
 export PATH="$HOME/.nimble/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 install_zplugins() {
   mkdir -p "$PLUGIN_DIR"

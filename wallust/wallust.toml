@@ -1,0 +1,10 @@
+backend = "fastresize"
+color_space = "lch"
+palette = "dark16"
+check_contrast = true
+
+[templates]
+waybar.template = "waybar.css"
+waybar.target = "~/.alatar/alatar_dots/sway/waybar/colors.css"
+help.template = "help.tcl"
+help.target = "~/.config/wallust/help.tcl"
