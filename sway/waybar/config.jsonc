@@ -18,7 +18,8 @@
     "network",
     "battery",
     "custom/time",
-    "tray"
+    "tray",
+    "custom/windows_button"
   ],
   "sway/workspaces": {
     "disable-scroll": true,
@@ -70,6 +71,11 @@
     "interval": 30,
     "format": "{text}",
     "on-click": "korganizer"
+  },
+  "custom/windows_button": {
+    "format": "",
+    "tooltip": "Start",
+    "on-click": "/home/dneumann/.workspace2/nimicron/src/nimicron"
   },
   "pulseaudio": {
     "scroll-step": 5,

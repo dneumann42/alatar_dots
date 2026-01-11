@@ -26,6 +26,8 @@ client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
 exec swaync
+exec_always --no-startup-id dbus-update-activation-environment --systemd QT_QPA_PLATFORMTHEME=qt6ct
+exec_always --no-startup-id systemctl --user import-environment QT_QPA_PLATFORMTHEME
 exec_always --no-startup-id ~/.alatar/scripts/pin-alatar-shell.sh
 exec_always --no-startup-id sh -c 'pkill -x waybar || true; waybar --config "$HOME/.alatar/alatar_dots/sway/waybar/config.jsonc" --style "$HOME/.alatar/alatar_dots/sway/waybar/style.css"'
 exec_always --no-startup-id ~/.alatar/scripts/manage-firefox-pip.sh
@@ -44,10 +46,11 @@ gaps inner 12
 
 floating_modifier $mod normal
 for_window [app_id="swayimg"] border none
-for_window [title="wikid"] floating enable
 for_window [app_id="mpv"] floating enable, sticky enable
 for_window [title=".* DEV .*"] floating enable
 for_window [app_id="floating-terminal" title="Floating Terminal"] floating enable
+for_window [app_id="com.mitchellh.ghostty" title="Floating Terminal"] floating enable
+for_window [app_id="com.mitchellh.ghostty" title="Floating Terminal"] floating enable
 for_window [app_id="app.floating-yazi"] floating enable
 for_window [app_id="korganizer"] floating enable
 for_window [class="Korganizer"] floating enable
@@ -67,6 +70,7 @@ for_window [title="Alatar Shell"] {
 	   move position 2250 -16
 	   border none
 }
+for_window [app_id="com.dneumann.nimicron"] floating enable, move position 100ppt 0px, move left 256px, move down 0px
 no_focus [title="Alatar Shell"]
 
 # :: { Window rules } ::
