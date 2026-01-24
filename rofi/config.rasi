@@ -40,6 +40,22 @@ window {
 mainbox {
   spacing: 12px;
   background-color: @win-bg;
+  children: [logo-container, inputbar, listview];
+}
+
+logo-container {
+  background-color: transparent;
+  padding: 0px 0px 12px 0px;
+  children: [logo-image];
+}
+
+logo-image {
+  type: "image";
+  path: "/home/dneumann/.alatar/alatar_dots/rofi/logo.png";
+  size: 64px;
+  background-color: transparent;
+  expand: false;
+  horizontal-align: 0.5;
 }
 
 inputbar {

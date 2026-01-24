@@ -1,0 +1,13 @@
+[SddmGreeterTheme]
+Name=Alatar
+Description=Alatar SDDM theme with wallust integration
+Author=Alatar System
+Copyright=(c) 2026
+License=MIT
+Type=sddm-theme
+Version=1.0
+Website=https://github.com/dneumann42/alatar_dots
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=alatar
+Theme-API=2.0
