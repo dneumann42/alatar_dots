@@ -12,34 +12,17 @@ configuration {
   font: "JetBrainsMono Nerd Font 12";
 }
 
-* {
-  base: #1e1e2e;
-  mantle: #181825;
-  crust: #11111b;
-  text: #ffffff;
-  subtext0: #a6adc8;
-  overlay0: #6c7086;
-  surface0: #313244;
-  surface1: #45475a;
-  surface2: #585b70;
-  lavender: #b4befe;
-  sapphire: #74c7ec;
-  peach: #fab387;
-  teal: #94e2d5;
-  red: #f38ba8;
-  green: #a6e3a1;
-  night1: #0c0e15;
-  night2: #0f1523;
-  night3: #0b0f1a;
+@import "wallust.rasi"
 
+* {
   accent: @sapphire;
   accent-strong: @lavender;
-  win-bg: #0b1020;
-  card-bg: #111726;
-  card-bg-strong: #161d2d;
-  item-bg: #141c2c;
-  item-alt: #182234;
-  item-selected: #203551;
+  win-bg: @crust;
+  card-bg: @mantle;
+  card-bg-strong: @base;
+  item-bg: @surface0;
+  item-alt: @surface1;
+  item-selected: @surface2;
 
   background-color: @win-bg;
   text-color: @text;

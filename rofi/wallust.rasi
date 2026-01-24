@@ -1,0 +1,20 @@
+* {
+  base: #140000;
+  mantle: #130000;
+  crust: #120000;
+  text: #EBEBCB;
+  subtext0: #B0B098;
+  overlay0: #999978;
+  surface0: #1D0A0A;
+  surface1: #271414;
+  surface2: #301F1F;
+  lavender: #FF9A25;
+  sapphire: #9A8D85;
+  peach: #70745A;
+  teal: #949550;
+  red: #915051;
+  green: #657077;
+  night1: #120000;
+  night2: #130000;
+  night3: #140000;
+}

@@ -8,4 +8,8 @@ array set theme {
     button_bg {{background | lighten(0.08)}}
     button_text {{foreground}}
     selected_text {{foreground}}
+    accent1 {{color1}}
+    accent2 {{color2}}
+    accent3 {{color3}}
+    accent4 {{color4}}
 }

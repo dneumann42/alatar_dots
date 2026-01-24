@@ -3,6 +3,11 @@
 alias gs="git status"
 alias ga="git add ."
 alias gc="git commit"
+alias gca="git commit --amend"
+
+alias cat="bat --style=plain --paging=never"
+alias bcat="bat --paging=never"
+alias batman="bat -l man -p --color=always"
 
 alias n="notes"
 alias ns="notes --status"
@@ -16,4 +21,7 @@ alias ncd="notes cd"
 alias repos="cd $REPOS"
 alias docs="cd $HOME/Documents"
 alias down="cd $HOME/Downloads"
+
+alias ls="lsd -ah"
+alias ll="lsd -lah"
 

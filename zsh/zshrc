@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 PLUGIN_DIR=$HOME/.local/bin
 mkdir -p "$PLUGIN_DIR"
 
@@ -6,11 +8,8 @@ ZSH_PLUGINS=(
   "zsh-syntax-highlighting:https://github.com/zsh-users/zsh-syntax-highlighting.git:zsh-syntax-highlighting.zsh"
 )
 
-export PATH="$HOME/.alatar/bin:$PATH"
-export PATH="$HOME/.alatar/scripts:$PATH"
-export PATH="$HOME/.local/share/grabnim/current/bin:$PATH"
-export PATH="$HOME/.nimble/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
+# Source path configuration
+[ -f "$HOME/.zsh_paths.sh" ] && source "$HOME/.zsh_paths.sh"
 
 install_zplugins() {
   mkdir -p "$PLUGIN_DIR"
@@ -51,8 +50,30 @@ install_ps1() {
   setopt prompt_subst
   zstyle ':vcs_info:git:*' formats '%b'
 
-  export PROMPT="%{%F{39}%}%n%{%F{45}%}@%{%F{51}%}%m %{%F{195}%}%~ %{%f%}$ "
-  export RPROMPT='${vcs_info_msg_0_}$(guix_info_msg)'
+  local wallust_prompt="$HOME/.config/wallust/zsh-prompt.zsh"
+  set_wallust_prompt() {
+    local user_fg="${WALLUST_ZSH_USER_FG:-39}"
+    local host_fg="${WALLUST_ZSH_HOST_FG:-45}"
+    local path_fg="${WALLUST_ZSH_PATH_FG:-51}"
+    local prompt_fg="${WALLUST_ZSH_PROMPT_FG:-195}"
+    local rprompt_fg="${WALLUST_ZSH_RPROMPT_FG:-8}"
+    local rprompt_content='${vcs_info_msg_0_}$(guix_info_msg)'
+
+    export PROMPT="%{%F{${user_fg}}%}%n%{%F{${host_fg}}%}@%{%F{${path_fg}}%}%m %{%F{${prompt_fg}}%}%~ %{%f%}$ "
+    export RPROMPT="%{%F{${rprompt_fg}}%}${rprompt_content}%{%f%}"
+  }
+  wallust_prompt_reload() {
+    if [[ -f "$wallust_prompt" ]]; then
+      source "$wallust_prompt"
+      set_wallust_prompt
+    fi
+  }
+  precmd_functions+=( wallust_prompt_reload )
+  if [ -f "$wallust_prompt" ]; then
+    source "$wallust_prompt"
+  fi
+
+  set_wallust_prompt
 }
 
 configure_zsh_navigation() {
@@ -103,3 +124,5 @@ emacs_mode
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+. $HOME/.local/share/gpt

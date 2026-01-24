@@ -1,0 +1,167 @@
+{
+  "name": "Wallust",
+  "type": "dark",
+  "colors": {
+    "activityBar.background": "{{background | darken(0.08)}}",
+    "activityBar.foreground": "{{foreground}}",
+    "activityBar.inactiveForeground": "{{foreground | darken(0.35)}}",
+    "badge.background": "{{color12}}",
+    "badge.foreground": "{{background}}",
+    "button.background": "{{color12}}",
+    "button.foreground": "{{background}}",
+    "button.hoverBackground": "{{color12 | lighten(0.06)}}",
+    "editor.background": "{{background}}",
+    "editor.foreground": "{{foreground}}",
+    "editor.lineHighlightBackground": "{{background | lighten(0.05)}}",
+    "editor.selectionBackground": "{{color8 | darken(0.35)}}",
+    "editor.selectionHighlightBackground": "{{color8 | darken(0.45)}}",
+    "editorCursor.foreground": "{{color12}}",
+    "editorLineNumber.foreground": "{{color8}}",
+    "editorLineNumber.activeForeground": "{{foreground}}",
+    "editorGroupHeader.tabsBackground": "{{background | darken(0.06)}}",
+    "editorIndentGuide.background": "{{background | lighten(0.08)}}",
+    "editorIndentGuide.activeBackground": "{{background | lighten(0.18)}}",
+    "input.background": "{{background | darken(0.08)}}",
+    "input.foreground": "{{foreground}}",
+    "input.placeholderForeground": "{{foreground | darken(0.4)}}",
+    "list.activeSelectionBackground": "{{background | lighten(0.08)}}",
+    "list.activeSelectionForeground": "{{foreground}}",
+    "list.hoverBackground": "{{background | lighten(0.05)}}",
+    "panel.background": "{{background | darken(0.06)}}",
+    "sideBar.background": "{{background | darken(0.05)}}",
+    "sideBar.foreground": "{{foreground}}",
+    "sideBarSectionHeader.background": "{{background | darken(0.08)}}",
+    "sideBarSectionHeader.foreground": "{{foreground}}",
+    "statusBar.background": "{{background | darken(0.1)}}",
+    "statusBar.foreground": "{{foreground}}",
+    "statusBarItem.hoverBackground": "{{background | lighten(0.08)}}",
+    "tab.activeBackground": "{{background}}",
+    "tab.activeForeground": "{{foreground}}",
+    "tab.inactiveBackground": "{{background | darken(0.06)}}",
+    "tab.inactiveForeground": "{{foreground | darken(0.35)}}",
+    "terminal.background": "{{background}}",
+    "terminal.foreground": "{{foreground}}",
+    "terminal.ansiBlack": "{{background}}",
+    "terminal.ansiRed": "{{color1}}",
+    "terminal.ansiGreen": "{{color2}}",
+    "terminal.ansiYellow": "{{color3}}",
+    "terminal.ansiBlue": "{{color4}}",
+    "terminal.ansiMagenta": "{{color5}}",
+    "terminal.ansiCyan": "{{color6}}",
+    "terminal.ansiWhite": "{{foreground}}",
+    "terminal.ansiBrightBlack": "{{color8}}",
+    "terminal.ansiBrightRed": "{{color9}}",
+    "terminal.ansiBrightGreen": "{{color10}}",
+    "terminal.ansiBrightYellow": "{{color11}}",
+    "terminal.ansiBrightBlue": "{{color12}}",
+    "terminal.ansiBrightMagenta": "{{color13}}",
+    "terminal.ansiBrightCyan": "{{color14}}",
+    "terminal.ansiBrightWhite": "{{color15}}",
+    "titleBar.activeBackground": "{{background | darken(0.08)}}",
+    "titleBar.activeForeground": "{{foreground}}",
+    "titleBar.inactiveBackground": "{{background | darken(0.12)}}",
+    "titleBar.inactiveForeground": "{{foreground | darken(0.35)}}"
+  },
+  "semanticHighlighting": true,
+  "semanticTokenColors": {
+    "comment": "{{color8 | lighten(0.28)}}",
+    "string": "{{color2 | lighten(0.3)}}",
+    "keyword": "{{color5 | lighten(0.3)}}",
+    "function": "{{color4 | lighten(0.3)}}",
+    "method": "{{color4 | lighten(0.3)}}",
+    "variable": "{{foreground}}",
+    "parameter": "{{foreground}}",
+    "property": "{{foreground}}",
+    "type": "{{color3 | lighten(0.3)}}",
+    "class": "{{color3 | lighten(0.3)}}",
+    "number": "{{color6 | lighten(0.3)}}",
+    "operator": "{{color13 | lighten(0.3)}}"
+  },
+  "tokenColors": [
+    {
+      "name": "Comments",
+      "scope": [
+        "comment",
+        "punctuation.definition.comment"
+      ],
+      "settings": {
+        "foreground": "{{color8 | lighten(0.28)}}"
+      }
+    },
+    {
+      "name": "Strings",
+      "scope": [
+        "string",
+        "punctuation.definition.string"
+      ],
+      "settings": {
+        "foreground": "{{color2 | lighten(0.3)}}"
+      }
+    },
+    {
+      "name": "Keywords",
+      "scope": [
+        "keyword",
+        "storage.type",
+        "storage.modifier"
+      ],
+      "settings": {
+        "foreground": "{{color5 | lighten(0.3)}}"
+      }
+    },
+    {
+      "name": "Functions",
+      "scope": [
+        "entity.name.function",
+        "support.function",
+        "meta.function-call"
+      ],
+      "settings": {
+        "foreground": "{{color4 | lighten(0.3)}}"
+      }
+    },
+    {
+      "name": "Variables",
+      "scope": [
+        "variable",
+        "identifier",
+        "support.variable"
+      ],
+      "settings": {
+        "foreground": "{{foreground}}"
+      }
+    },
+    {
+      "name": "Types",
+      "scope": [
+        "entity.name.type",
+        "support.type",
+        "storage.type"
+      ],
+      "settings": {
+        "foreground": "{{color3 | lighten(0.3)}}"
+      }
+    },
+    {
+      "name": "Numbers",
+      "scope": [
+        "constant.numeric",
+        "constant.other"
+      ],
+      "settings": {
+        "foreground": "{{color6 | lighten(0.3)}}"
+      }
+    },
+    {
+      "name": "Operators",
+      "scope": [
+        "keyword.operator",
+        "punctuation.separator",
+        "punctuation.accessor"
+      ],
+      "settings": {
+        "foreground": "{{color13 | lighten(0.3)}}"
+      }
+    }
+  ]
+}

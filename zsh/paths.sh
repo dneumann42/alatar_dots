@@ -1,0 +1,7 @@
+export PATH="$HOME/.alatar/bin:$PATH"
+export PATH="$HOME/.alatar/scripts:$PATH"
+export PATH="$HOME/.alatar/tools:$PATH"
+export PATH="$HOME/.local/share/grabnim/current/bin:$PATH"
+export PATH="$HOME/.nimble/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$(ruby -r rubygems -e 'print Gem.user_dir')/bin:$PATH"

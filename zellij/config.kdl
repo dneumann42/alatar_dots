@@ -279,7 +279,7 @@ web_client {
     font "monospace"
 }
 simplified_ui true
-theme "catppuccin-mocha"
+theme "wallust"
 default_shell "zsh"
 default_layout "compact"
 mouse_mode true

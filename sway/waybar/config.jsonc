@@ -75,7 +75,7 @@
   "custom/windows_button": {
     "format": "",
     "tooltip": "Start",
-    "on-click": "/home/dneumann/.workspace2/nimicron/src/nimicron"
+    "on-click": "/home/dneumann/.alatar/tools/nomicron.tcl"
   },
   "pulseaudio": {
     "scroll-step": 5,
