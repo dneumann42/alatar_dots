@@ -9,7 +9,7 @@ ZSH_PLUGINS=(
 )
 
 # Source path configuration
-[ -f "$HOME/.zsh_paths.sh" ] && source "$HOME/.zsh_paths.sh"
+[ -f "$HOME/.zpaths" ] && source "$HOME/.zpaths"
 
 install_zplugins() {
   mkdir -p "$PLUGIN_DIR"

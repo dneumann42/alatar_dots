@@ -34,6 +34,7 @@ exec_always --no-startup-id systemctl --user import-environment QT_QPA_PLATFORMT
 exec_always --no-startup-id ~/.alatar/scripts/pin-alatar-shell.sh
 exec_always --no-startup-id sh -c 'pkill -x waybar || true; waybar --config "$HOME/.alatar/alatar_dots/sway/waybar/config.jsonc" --style "$HOME/.alatar/alatar_dots/sway/waybar/style.css"'
 exec_always --no-startup-id ~/.alatar/scripts/manage-firefox-pip.sh
+exec_always --no-startup-id sh -c 'pkill -f sway-config-watcher.tcl || true; ~/.alatar/scripts/sway-config-watcher.tcl > /tmp/sway-watcher.log 2>&1 &'
 exec --no-startup-id qutebrowser --nowindow 
 
 include ./keybindings.conf
