@@ -73,9 +73,9 @@
     "on-click": "korganizer"
   },
   "custom/windows_button": {
-    "format": "",
-    "tooltip": "Start",
-    "on-click": "/home/dneumann/.alatar/tools/nomicron.tcl"
+    "format": " ",
+    "tooltip": "Nomicron",
+    "on-click": "$HOME/.alatar/scripts/toggle-floating-nomicron.tcl"
   },
   "pulseaudio": {
     "scroll-step": 5,
@@ -92,8 +92,10 @@
         ""
       ]
     },
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-right": "pavucontrol"
+    "on-click": "$HOME/.alatar/scripts/volume-notify.sh mute",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "$HOME/.alatar/scripts/volume-notify.sh up",
+    "on-scroll-down": "$HOME/.alatar/scripts/volume-notify.sh down"
   },
   "network": {
     "interval": 3,
@@ -135,6 +137,7 @@
   },
   "tray": {
     "icon-size": 18,
-    "spacing": 8
+    "spacing": 8,
+    "hide": true
   }
 }

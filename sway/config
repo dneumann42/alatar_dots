@@ -36,6 +36,7 @@ exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id sh -c 'export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"; dbus-update-activation-environment --systemd XDG_DATA_DIRS QT_QPA_PLATFORMTHEME=qt6ct'
 exec_always --no-startup-id sh -c 'export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"; systemctl --user set-environment XDG_DATA_DIRS="$XDG_DATA_DIRS"'
 exec_always --no-startup-id sh -c 'pkill -x waybar || true; waybar --config "$HOME/.alatar/alatar_dots/sway/waybar/config.jsonc" --style "$HOME/.alatar/alatar_dots/sway/waybar/style.css"'
+exec_always --no-startup-id sh -c 'pkill -x fnott || true; fnott'
 
 include ./keybindings.conf
 
