@@ -5,4 +5,7 @@ export GIT_REVIEW_BASE=main # See gitconfig
 export TERM="xterm-ghostty"
 export REPOS="$HOME/.repos"
 
+# Add flatpak application directories for rofi and other launchers
+export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+
 if [ -e /home/dneumann/.nix-profile/etc/profile.d/nix.sh ]; then . /home/dneumann/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

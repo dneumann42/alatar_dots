@@ -1,7 +1,5 @@
 # Dustin's wicked sway config
 
-# include /etc/sway/config.d/*
-
 include ./variables.conf
 include ./colors.conf
 
@@ -25,17 +23,16 @@ client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
-exec swaync
 exec emacs --daemon
+exec systemctl --user restart pipewire pipewire-pulse wireplumber
+exec ~/.alatar/scripts/sync-flatpak-apps.sh
 
+exec_always --no-startup-id systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+exec_always --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
 exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id dbus-update-activation-environment --systemd QT_QPA_PLATFORMTHEME=qt6ct
-exec_always --no-startup-id systemctl --user import-environment QT_QPA_PLATFORMTHEME
-exec_always --no-startup-id ~/.alatar/scripts/pin-alatar-shell.sh
+exec_always --no-startup-id sh -c 'export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"; dbus-update-activation-environment --systemd XDG_DATA_DIRS QT_QPA_PLATFORMTHEME=qt6ct'
+exec_always --no-startup-id sh -c 'export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"; systemctl --user set-environment XDG_DATA_DIRS="$XDG_DATA_DIRS"'
 exec_always --no-startup-id sh -c 'pkill -x waybar || true; waybar --config "$HOME/.alatar/alatar_dots/sway/waybar/config.jsonc" --style "$HOME/.alatar/alatar_dots/sway/waybar/style.css"'
-exec_always --no-startup-id ~/.alatar/scripts/manage-firefox-pip.sh
-exec_always --no-startup-id sh -c 'pkill -f sway-config-watcher.tcl || true; ~/.alatar/scripts/sway-config-watcher.tcl > /tmp/sway-watcher.log 2>&1 &'
-exec --no-startup-id qutebrowser --nowindow 
 
 include ./keybindings.conf
 
@@ -57,7 +54,6 @@ for_window [title="^nomicron$"] floating enable, border none
 for_window [title="^Path Editor$"] floating enable
 for_window [app_id="floating-terminal" title="Floating Terminal"] floating enable
 for_window [app_id="com.mitchellh.ghostty" title="Floating Terminal"] floating enable
-for_window [app_id="com.mitchellh.ghostty" title="Floating Terminal"] floating enable
 for_window [app_id="app.floating-yazi"] floating enable
 for_window [app_id="korganizer"] floating enable
 for_window [class="Korganizer"] floating enable
@@ -65,24 +61,12 @@ for_window [app_id="nm-connection-editor"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [app_id="myrlyn"] floating enable
-for_window [class="Myrlyn"] floating enable
 for_window [app_id="org.qutebrowser.qutebrowser"] floating enable
 for_window [app_id="^(code|code-oss|VSCodium)$"] opacity 0.95
 for_window [class="^(Code|code-oss|VSCodium)$"] opacity 0.95
-for_window [app_id="cheatsheet-term" title="Keybindings Cheatsheet"] mark cheatsheet-term, floating enable, resize set 1400 900, move position center
+for_window [app_id="cheatsheet-term" title="Keybindings Cheatsheet"] \
+	   mark cheatsheet-term, floating enable, resize set 1400 900, move position center
 for_window [title="Keybindings Cheatsheet"] floating enable
-for_window [app_id="com.mitchellh.ghostty" title="floating-term"] mark floating-term, floating enable, resize set 1400 900, move position center
+for_window [app_id="com.mitchellh.ghostty" title="floating-term"] \
+	   mark floating-term, floating enable, resize set 1400 900, move position center
 for_window [app_id="swayimg"] floating enable, border none, resize set 1600 900, move position center
-for_window [title="Alatar Shell"] {
-	   floating enable
-	   resize set 300 32
-	   move position 2250 -16
-	   border none
-}
-# for_window [title="nomicron"] floating enable, 
-
-
-no_focus [title="Alatar Shell"]
-
-# :: { Window rules } ::
