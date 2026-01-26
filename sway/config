@@ -23,6 +23,8 @@ client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
+# xwayland enable
+
 exec emacs --daemon
 exec systemctl --user restart pipewire pipewire-pulse wireplumber
 exec ~/.alatar/scripts/sync-flatpak-apps.sh
@@ -53,6 +55,7 @@ for_window [app_id="mpv"] floating enable, sticky enable
 for_window [title=".* DEV .*"] floating enable
 for_window [title="^nomicron$"] floating enable, border none
 for_window [title="^Path Editor$"] floating enable
+for_window [title="Alatar Help"] mark "Alatar Help", floating enable, resize set 1400 900, move position center
 for_window [app_id="floating-terminal" title="Floating Terminal"] floating enable
 for_window [app_id="com.mitchellh.ghostty" title="Floating Terminal"] floating enable
 for_window [app_id="app.floating-yazi"] floating enable

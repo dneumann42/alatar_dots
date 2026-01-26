@@ -1,15 +1,15 @@
 array set theme {
-    base #221F1F
-    text #FFF5BB
-    heading #343131
-    heading_active #3D3A3A
-    selected_bg #434141
-    active_bg #383535
-    button_bg #343131
-    button_text #FFF5BB
-    selected_text #FFF5BB
-    accent1 #564E49
-    accent2 #716B7F
-    accent3 #8A735D
-    accent4 #AA7F89
+    base #1B1A1C
+    text #E0E9DA
+    heading #2D2C2E
+    heading_active #363537
+    selected_bg #3D3C3E
+    active_bg #323133
+    button_bg #2D2C2E
+    button_text #E0E9DA
+    selected_text #E0E9DA
+    accent1 #4D4B52
+    accent2 #3B5753
+    accent3 #706A62
+    accent4 #60836E
 }

@@ -9,3 +9,4 @@ export REPOS="$HOME/.repos"
 export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
 
 if [ -e /home/dneumann/.nix-profile/etc/profile.d/nix.sh ]; then . /home/dneumann/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
